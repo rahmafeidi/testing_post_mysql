@@ -1,0 +1,83 @@
+
+  
+  <table class="table">
+      <thead><br>
+        <button type="button" class="btn btn-primary btn-icon-split" (click)="open(content)">Add Product</button>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Reference</th>
+          <th scope="col">QTE</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Description</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of listproduct;let i =index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{p.ref}}</td>
+          <td>{{p.qte}}</td>
+          <td>{{p.name}}</td>
+          <td>{{p.price}}</td>
+          <td>{{p.description}}</td>
+          <td>
+              <button type="button" class="btn btn-danger"(click)=delete(p.id)>Delete</button>&nbsp;
+           
+  
+          </td>
+        </tr>
+ 
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Product</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form">
+        <div class="form-group">
+          <label>Reference</label>
+          <input type="text" formControlName="ref" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" formControlName="name" class="form-control">
+          </div>
+        <div class="form-group">
+          <label>Price</label>
+          <input type="text" formControlName="price" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Quntiter</label>
+          <input type="text" formControlName="qte" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" formControlName="description" class="form-control">
+        </div>
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark"
+        (click)="modal.close('Save click');ajout()">Save</button>
+    </div>
+  </ng-template>
