@@ -13,7 +13,7 @@ COPY src src
 
 # Build the application
 RUN mvn clean install
-RUN mvn package
+RUN mvn -X package
 
 # Use a lightweight base image with JRE for running the application
 FROM openjdk:11-jre-slim
