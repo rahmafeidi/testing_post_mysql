@@ -1,4 +1,4 @@
-FROM maven:3.6.3-jdk-11-slim AS builder
+FROM maven:3.1.5-jdk-17-slim AS builder
 # Set the working directory in the container
 WORKDIR /app
 
