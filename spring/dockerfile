@@ -1,29 +1,18 @@
-FROM maven:3.8.4-openjdk-17-slim AS builder
-# Set the working directory in the container
+# Use a base image with OpenJDK 17
+FROM adoptopenjdk:17-jre-hotspot
+
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the project's POM file to the container
+# Copy the Maven project files into the container
 COPY pom.xml .
+COPY src ./src
 
-# Download the project dependencies
-RUN mvn dependency:go-offline
+# Build the application using Maven
+RUN ./mvnw clean package
 
-# Copy the source code to the container
-COPY src src
-# Build the application
-RUN mvn -X package
-
-# Use a lightweight base image with JRE for running the application
-FROM openjdk:17-jre-slim
-ARG JAR_FILE=build/libs/*.jar
-# Set the working directory in the container
-WORKDIR /app
-
-# Copy the JAR file built in the previous stage to the container
-COPY ${JAR_FILE} app.jar
-
-# Expose the application's port (if necessary)
+# Expose the port that your Spring Boot application runs on (default is 8080)
 EXPOSE 8080
 
-# Define the command to run the application
-CMD ["java", "-jar", "/app.jar"]
+# Command to run your Spring Boot application
+CMD ["java", "-jar", "target/your-application.jar"]
