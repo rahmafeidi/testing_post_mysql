@@ -1,17 +1,4 @@
-# Use a base image with OpenJDK 17
-FROM adoptopenjdk:17-jre-hotspot
-# Set the working directory inside the container
-WORKDIR /app
-
-# Copy the Maven project files into the container
-COPY pom.xml .
-COPY src ./src
-
-# Build the application using Maven
-RUN ./mvnw clean package
-
-# Expose the port that your Spring Boot application runs on (default is 8080)
-EXPOSE 8080
-
-# Command to run your Spring Boot application
-CMD ["java", "-jar", "target/your-application.jar"]
+FROM openjdk:11
+ARG JAR_FILE=build/libs/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
