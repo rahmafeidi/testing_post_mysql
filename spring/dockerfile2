@@ -1,0 +1,29 @@
+FROM maven:3.8.4-openjdk-17-slim AS builder
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the project's POM file to the container
+COPY pom.xml .
+
+# Download the project dependencies
+RUN mvn dependency:go-offline
+
+# Copy the source code to the container
+COPY src src
+# Build the application
+RUN mvn -X package
+
+# Use a lightweight base image with JRE for running the application
+FROM openjdk:17-jre-slim
+ARG JAR_FILE=build/libs/*.jar
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the JAR file built in the previous stage to the container
+COPY ${JAR_FILE} app.jar
+
+# Expose the application's port (if necessary)
+EXPOSE 8080
+
+# Define the command to run the application
+CMD ["java", "-jar", "/app.jar"]
