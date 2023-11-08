@@ -12,7 +12,7 @@ COPY . .
 
 # Install Angular CLI globally
 RUN npm install -g @angular/cli
-RUN rm -rf node_modules
+
 # Install app dependencies
 RUN npm cache clean --force
 RUN npm install
