@@ -10,7 +10,7 @@ export class ProductService {
  
   constructor(private http:HttpClient) { }
   
-  getallproduct(){
+  /* getallproduct(){
     return this.http.get(`${environment.baseurl}/products/all`)
  }
 
@@ -21,5 +21,5 @@ export class ProductService {
 
   ajotproduct(product:any){
     return this.http.post(`${environment.baseurl}/products/save`,product)
-  }
+  }*/
 }
