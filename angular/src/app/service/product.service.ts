@@ -10,16 +10,16 @@ export class ProductService {
  
   constructor(private http:HttpClient) { }
   
-  getallproduct(){
-    return this.http.get(`${environment.baseurl}/products/all`)
-  }
+ # getallproduct(){
+  #  return this.http.get(`${environment.baseurl}/products/all`)
+ # }
 
-  deleteproduct(id:any){
-    return this.http.delete(`${environment.baseurl}/products/${id}`)
-  }
+ # deleteproduct(id:any){
+ #   return this.http.delete(`${environment.baseurl}/products/${id}`)
+ # }
 
 
-  ajotproduct(product:any){
-    return this.http.post(`${environment.baseurl}/products/save`,product)
-  }
+  #ajotproduct(product:any){
+  #  return this.http.post(`${environment.baseurl}/products/save`,product)
+  #}
 }
