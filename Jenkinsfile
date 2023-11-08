@@ -7,8 +7,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t rahmafeidi/srping spring/'
-        sh 'docker build -t rahmafeidi/angular angular/'
+        sh 'docker build -t rahmafeidi/srping:latest spring/'
+        sh 'docker build -t rahmafeidi/angular:latest angular/'
       }
     }
     stage('Login') {
@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push rahmafeidi/spring:latest'
+        sh 'docker push rahmafeidi/srping:latest'
         sh 'docker push rahmafeidi/angular:latest'
       }
     }
