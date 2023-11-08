@@ -18,8 +18,8 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push rahmafeidi/spring'
-        sh 'docker push rahmafeidi/angular'
+        sh 'docker push rahmafeidi/spring:latest'
+        sh 'docker push rahmafeidi/angular:latest'
       }
     }
   }
