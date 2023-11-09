@@ -13,7 +13,6 @@ COPY . .
 
 # Install Angular CLI globally
 RUN npm install -g @angular/cli
-run rm -rf node_modules
 # Install app dependencies
 RUN npm install
 
