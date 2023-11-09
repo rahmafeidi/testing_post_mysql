@@ -21,7 +21,7 @@ RUN npm install
 # Build the Angular app
 RUN ng build 
 
-CMD ["ng", "start"]
+CMD ["ng", "serve", "--port", "80"]
 
 # Expose port 80
 EXPOSE 80
