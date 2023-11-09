@@ -10,4 +10,4 @@ COPY . .
 EXPOSE 8761
 
 # Command to run the application
-CMD ["java", "-jar", "projetjee.jar"
+CMD [ "java" , "-jar", "projetjee.jar" ]
