@@ -1,5 +1,6 @@
+
 # Use an official Node.js runtime as a parent image
-FROM node:18 as builder
+FROM node:14 as builder
 
 # Set the working directory
 WORKDIR /app
@@ -12,18 +13,26 @@ COPY . .
 
 # Install Angular CLI globally
 RUN npm install -g @angular/cli
-
+run rm -rf node_modules
 # Install app dependencies
-RUN npm cache clean --force
 RUN npm install
 
 
 # Build the Angular app
 RUN ng build 
 
-CMD ["ng", "serve", "--host", "172.31.28.182", "--port", "80"]
+# Use a smaller production-ready image for serving the Angular app
+FROM nginx:alpine
+
+# Copy the Angular app build artifacts to the nginx public directory
+COPY --from=builder /app/dist/test /usr/share/nginx/html
 
 # Expose port 80
 EXPOSE 80
 
+# Start the nginx web server
+CMD ["nginx", "-g", "daemon off;"]
+
+# Expose port 80
+EXPOSE 80
 
