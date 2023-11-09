@@ -4,7 +4,7 @@ FROM openjdk:17
 WORKDIR /app
 
 # Copy the built JAR file from the previous stage
-COPY /app/target/*.jar ./projetjee.jar
+COPY . .
 
 # Expose the port that the application will run on
 EXPOSE 8761
