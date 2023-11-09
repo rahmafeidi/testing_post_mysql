@@ -8,9 +8,10 @@ WORKDIR /app
 
 # Copy the built JAR file from the previous stage
 COPY . .
+COPY ./target/projetjee.jar /app/
 
 # Expose the port that the application will run on
-EXPOSE 8761
+EXPOSE 9999
 
 # Command to run the application
 CMD [ "java" , "-jar", "projetjee.jar" ]
