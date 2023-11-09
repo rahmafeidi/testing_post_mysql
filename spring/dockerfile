@@ -1,22 +1,3 @@
-# Use a base image with Java and Maven installed
-FROM maven:3.8.4-openjdk-17-slim AS build
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the POM file
-COPY pom.xml .
-
-# Download the project dependencies
-RUN mvn dependency:go-offline 
-
-# Copy the source code
-COPY src /app/src
-
-# Build the project
-RUN mvn package 
-
-# Create a new image with a smaller base image
 FROM openjdk:17
 
 # Set the working directory
