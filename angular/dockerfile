@@ -21,17 +21,7 @@ RUN npm install
 # Build the Angular app
 RUN ng build 
 
-# Use a smaller production-ready image for serving the Angular app
-FROM nginx:alpine
-
-# Copy the Angular app build artifacts to the nginx public directory
-COPY --from=builder /app/dist/test /usr/share/nginx/html
-
-# Expose port 80
-EXPOSE 80
-
-# Start the nginx web server
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["ng", "start"]
 
 # Expose port 80
 EXPOSE 80
