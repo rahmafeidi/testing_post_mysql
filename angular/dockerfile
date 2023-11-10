@@ -1,8 +1,7 @@
 # Stage 1: Use Ubuntu image to build Angular app
-FROM ubuntu:20.04 as builder
+FROM ubuntu:latest as builder
 
 # Set non-interactive mode during the build
-ARG DEBIAN_FRONTEND=noninteractive
 
 # Update the package lists and install required packages
 RUN apt-get update && \
