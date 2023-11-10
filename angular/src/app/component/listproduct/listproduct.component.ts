@@ -12,10 +12,10 @@ import Swal from 'sweetalert2';
 export class ListproductComponent implements OnInit {
   listproduct:any
   form :FormGroup
-  product:any
+
   closeResult = '';
   p:number=1 //3 eme etape pagination
-    constructor(private formBuilder: FormBuilder,private modalService: NgbModal) { }
+    constructor(private formBuilder: FormBuilder,private product :ProductService ,private modalService: NgbModal) { }
   
     ngOnInit(): void {
 
