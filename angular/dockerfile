@@ -1,15 +1,15 @@
 # Stage 1: Use Ubuntu image to build Angular app
-FROM ubuntu:latest as builder
+FROM ubuntu:latest 
 
 # Set non-interactive mode during the build
 
 # Update the package lists and install required packages
 RUN apt-get update && \
-    apt-get install -y curl gnupg
+    apt-get install -y curl gnupg nginx
 
 # Install Node.js and npm
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs
+    apt-get install -y nodejs 
 
 # Install Angular CLI globally
 RUN npm install -g @angular/cli
@@ -29,14 +29,9 @@ COPY . .
 # Build the Angular app
 RUN ng build 
 
-# Stage 2: Use Nginx image to serve the Angular app
-FROM nginx:alpine
-
-# Set the working directory in Nginx
-WORKDIR /usr/share/nginx/html
 
 # Copy the built Angular app artifacts from the builder stage
-COPY --from=builder /app/dist/test .
+COPY /app/dist/test /usr/share/nginx/html/
 
 # Expose port 80
 EXPOSE 80
