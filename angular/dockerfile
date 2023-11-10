@@ -30,7 +30,8 @@ COPY --from=builder /app/dist/test /usr/share/nginx/html
 EXPOSE 80
 
 # Start the nginx web server
-CMD ["ng", "serve", "--host", "51.20.129.71", "--port", "80"]
+CMD ["nginx", "-g", "daemon off;"]
+
 
 # Expose port 80
 EXPOSE 80
