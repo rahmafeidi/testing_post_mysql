@@ -24,7 +24,7 @@ RUN ng build
 FROM nginx:alpine
 
 # Copy the Angular app build artifacts to the nginx public directory
-COPY --from=builder /app/dist/test /usr/share/nginx/html
+COPY --from=builder /app/dist/test /usr/share/nginx/html/
 
 # Expose port 80
 EXPOSE 80
