@@ -22,7 +22,7 @@ RUN ng build
 
 # Use a smaller production-ready image for serving the Angular app
 FROM nginx:alpine
-
+WORKDIR /app
 # Copy the Angular app build artifacts to the nginx public directory
 COPY --from=builder /app/dist/test /usr/share/nginx/html/
 
