@@ -29,8 +29,7 @@ COPY . .
 # Build the Angular app
 RUN ng build 
 WORKDIR /usr/share/nginx/html/ 
-RUN ls dist/test
-RUN ls /usr/share/nginx/html/ && chmod 777 -R  /usr/share/nginx/html/
+RUN ls ../dist/test
 # Copy the built Angular app artifacts from the builder stage
 COPY ../dist/test/ .
 
