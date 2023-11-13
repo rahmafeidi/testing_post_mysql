@@ -29,7 +29,9 @@ COPY . .
 # Build the Angular app
 RUN ng build 
 
-RUN ls dist/test
+RUN ls -la  dist/test
+RUN cat .dockerignore
+
 # Copy the built Angular app artifacts from the builder stage
 COPY dist/test/ /usr/share/nginx/html/ 
 
