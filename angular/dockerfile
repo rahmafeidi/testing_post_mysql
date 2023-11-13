@@ -32,7 +32,8 @@ RUN ng build
 RUN ls dist/test
 RUN ls /usr/share/nginx/html/ && chmod 777 -R  /usr/share/nginx/html/
 # Copy the built Angular app artifacts from the builder stage
-COPY dist/test/* /usr/share/nginx/html/
+COPY dist/test/* .
+RUN ls 
 
 # Expose port 80
 EXPOSE 80
