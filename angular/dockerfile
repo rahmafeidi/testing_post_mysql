@@ -32,7 +32,7 @@ RUN ng build
 RUN ls dist/test
 RUN ls /usr/share/nginx/html/
 # Copy the built Angular app artifacts from the builder stage
-RUN cp dist/test/* /usr/share/nginx/html/
+RUN rm  /usr/share/nginx/html/* &&  cp dist/test/* /usr/share/nginx/html/
 
 # Expose port 80
 EXPOSE 80
