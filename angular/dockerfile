@@ -28,12 +28,12 @@ COPY . .
 
 # Build the Angular app
 RUN ng build 
-
+WORKDIR /usr/share/nginx/html/ 
 RUN ls dist/test
 RUN ls /usr/share/nginx/html/ && chmod 777 -R  /usr/share/nginx/html/
 # Copy the built Angular app artifacts from the builder stage
-COPY dist/test/3rdpartylicenses.txt dist/test/favicon.ico dist/test/index.html dist/test/main.9633dc62bc2ff716.js dist/test/polyfills.5ccecbead209f4ed.js dist/test/runtime.ba33254e98283075.js dist/test/styles.9e150b4b4a8e30d9.css /usr/share/nginx/html/
-RUN /usr/share/nginx/html/ 
+COPY ../dist/test/ .
+
 
 # Expose port 80
 EXPOSE 80
