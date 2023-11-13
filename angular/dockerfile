@@ -5,7 +5,7 @@ FROM ubuntu:latest
 
 # Update the package lists and install required packages
 RUN apt-get update && \
-    apt-get install -y curl gnupg nginx tree
+    apt-get install -y curl gnupg nginx 
 
 # Install Node.js and npm
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
@@ -30,9 +30,9 @@ COPY . .
 RUN ng build 
 
 RUN ls dist/test
-RUN ls /usr/share/nginx/html/
+RUN ls /usr/share/nginx/html/ && chmod 777 -R  /usr/share/nginx/html/
 # Copy the built Angular app artifacts from the builder stage
-RUN rm  /usr/share/nginx/html/* &&  cp dist/test/* /usr/share/nginx/html/
+COPY dist/test/* /usr/share/nginx/html/
 
 # Expose port 80
 EXPOSE 80
