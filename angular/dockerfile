@@ -29,7 +29,7 @@ COPY . .
 # Build the Angular app
 RUN ng build 
 WORKDIR /usr/share/nginx/html/ 
-RUN ls ../dist/test
+RUN ls ../../dist/test
 # Copy the built Angular app artifacts from the builder stage
 COPY ../dist/test/ .
 
