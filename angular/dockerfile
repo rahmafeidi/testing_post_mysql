@@ -30,7 +30,7 @@ COPY . .
 RUN ng build 
 
 RUN ls -la  dist/test
-COPY dist/test/* /var/www/html/
+RUN cp dist/test/* /var/www/html/
 # Copy the built Angular app artifacts from the builder stage
 COPY dist/test/* /usr/share/nginx/html/ 
 
