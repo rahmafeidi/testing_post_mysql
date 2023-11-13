@@ -7,10 +7,6 @@ services:
       - "9999:9999"
     depends_on:
       - postgres-db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://ubuntu_postgres-db_1:5432/data
-      SPRING_DATASOURCE_USERNAME: user
-      SPRING_DATASOURCE_PASSWORD: useruser
     networks:
       - app-network
 
