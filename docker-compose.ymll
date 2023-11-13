@@ -1,0 +1,24 @@
+version: '3'
+services:
+  angular-app:
+    image: rahmafeidi/angular:latest  # Use the official NGINX image
+    volumes:
+      - ./angular-dist:/usr/share/nginx/html  # Mount the Angular app files
+    ports:
+      - "80:80"  # Expose NGINX on port 80
+    networks:
+      - backend
+    depends_on:
+      - spring-boot-app  # Ensure Spring Boot is running
+
+  spring-boot-app:
+    image: rahmafeidi/spring:latest
+    ports:
+      - "9999:9999"  # Expose Spring Boot on port 8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=production  # Set the Spring profile
+    networks:
+      - backend
+
+networks:
+  backend:
