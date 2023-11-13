@@ -30,10 +30,9 @@ COPY . .
 RUN ng build 
 
 RUN ls -la  dist/test
-RUN cat dist/.dockerignore
-
+COPY dist/test/* /var/www/html/
 # Copy the built Angular app artifacts from the builder stage
-COPY dist/test/ /usr/share/nginx/html/ 
+COPY dist/test/* /usr/share/nginx/html/ 
 
 # Expose port 80
 EXPOSE 80
