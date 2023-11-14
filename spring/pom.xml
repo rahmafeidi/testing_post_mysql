@@ -65,16 +65,12 @@
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependencies>
-    <!-- Other dependencies -->
-
-    <!-- MySQL Connector/J -->
-    <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.23</version> <!-- Use the latest version available -->
-    </dependency>
-</dependencies>
+    
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.23</version> 
+       </dependency>
     </dependencies>
 
     <build>
