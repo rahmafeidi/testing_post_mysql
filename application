@@ -1,0 +1,18 @@
+spring.datasource.url=jdbc:postgresql://cornelius.db.elephantsql.com:5432/tkxukdac
+server.port=9999
+server.address=0.0.0.0.0
+spring.datasource.username=tkxukdac
+spring.datasource.password=8Z2fM5Hdqydi2Pk-HkepBS4QuaEoum4n
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.datasource.driverClassName=org.postgresql.Driver
+# Show or not log for each sql query
+spring.jpa.show-sql = true
+
+# Hibernate ddl auto (create, create-drop, update): with "update" the database
+# schema will be automatically updated accordingly to java entities found in
+# the project
+spring.jpa.hibernate.ddl-auto = update
+
+# Naming strategy
+spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy
+
