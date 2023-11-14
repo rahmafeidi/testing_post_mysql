@@ -1,0 +1,45 @@
+1  ls
+    2  ls /etc/postgresql/
+    3  nano  /etc/postgresql-common/createcluster.conf 
+    4  apt-get update 
+    5  apt-get install nano 
+    6  nano  /etc/postgresql-common/createcluster.conf 
+    7  find postgresql.conf
+    8  cd
+    9  find postgresql.conf
+   10  ls
+   11  sudo sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+   12  sudo sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+   13  sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+   14  sudo apt install postgresql postgresql-contrib
+   15   apt install postgresql postgresql-contrib
+   16  sudo systemctl start postgresql.service
+   17   systemctl start postgresql.service
+   18  service  postgresql start 
+   19  pg_createcluster 10 mycluster
+   20  pg_createcluster 42 mycluster
+   21  postgresql
+   22  psql --version
+   23  pg_createcluster 16 mycluster
+   24  pg_createcluster 16 mycluster
+   25  service  postgresql start 
+   26  service  postgresql status
+   27  history 
+   
+   bash: sudo: command not found
+root@85501105a817:~#  -i -u postgres
+bash: -i: command not found
+root@85501105a817:~#  postgres
+"root" execution of the PostgreSQL server is not permitted.
+The server must be started under an unprivileged user ID to prevent
+possible system security compromise.  See the documentation for
+more information on how to properly start the server.
+root@85501105a817:~# createuser --interactive
+Enter name of role to add: yourdbuser
+Shall the new role be a superuser? (y/n) y
+createuser: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5433" failed: FATAL:  role "root" does not exist
+root@85501105a817:~# su - postgres
+postgres@85501105a817:~$ createuser --interactive
+Enter name of role to add: yourdbuser
+Shall the new role be a superuser? (y/n) y
+postgres@85501105a817:~$ createdb yourdatabase
