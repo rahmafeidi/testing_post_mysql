@@ -16,3 +16,9 @@ spring.jpa.hibernate.ddl-auto = update
 # Naming strategy
 spring.jpa.hibernate.naming-strategy = org.hibernate.cfg.ImprovedNamingStrategy
 
+
+<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.23</version> 
+       </dependency>
