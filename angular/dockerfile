@@ -19,7 +19,7 @@ COPY . .
 # Build the Angular app
 RUN ng build 
 
-Run ng serve --host 51.20.71.233 --port 80
+Run ng serve --host 51.20.71.233 --port 4200
 EXPOSE 80
 
 CMD ["npm", "start"]
