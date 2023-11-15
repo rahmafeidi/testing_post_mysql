@@ -8,7 +8,10 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-# Install npm dependencies globally
+# Set npm prefix to user directory
+RUN npm config set prefix ~/.npm
+
+# Install global npm packages in user directory
 RUN npm install -g @angular/cli
 
 # Install project dependencies
@@ -21,3 +24,4 @@ RUN ng build
 EXPOSE 80
 
 CMD ["npm", "start"]
+
