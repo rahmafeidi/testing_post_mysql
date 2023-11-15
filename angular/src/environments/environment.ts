@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseurl:"http://spring-boot-app:9999"
+  baseurl:"http://51.20.71.233:9999"
 };
 
 /*
