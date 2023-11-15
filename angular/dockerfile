@@ -1,8 +1,7 @@
 FROM node:14
 
 # Create a non-root user and switch to that user
-RUN adduser --disabled-password --gecos '' appuser
-USER appuser
+USER root
 
 WORKDIR /usr/src/app
 
