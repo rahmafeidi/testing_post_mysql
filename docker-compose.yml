@@ -2,11 +2,9 @@ version: '3'
 services:
   # Spring Boot Application
   spring-boot-app:
-    image: rahmafeidi/spring:latest
+    image: rahmafeidi/srping:latest
     ports:
       - "9999:9999"
-    depends_on:
-      - postgres-db
     networks:
       - app-network
 
@@ -20,19 +18,6 @@ services:
     networks:
       - app-network
 
-  # PostgreSQL Database
-  postgres-db:
-    image: postgres:latest
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_DB: data
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: useruser
-    networks:
-      - app-network
-
 networks:
   app-network:
     driver: bridge
-
